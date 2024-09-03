@@ -1,0 +1,1 @@
+exports.Authentication = require("./authenticationRoutes.js");

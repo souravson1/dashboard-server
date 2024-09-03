@@ -1,0 +1,1 @@
+exports.authenticationController = require("./authenticationController.js");
