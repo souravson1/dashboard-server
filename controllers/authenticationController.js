@@ -47,6 +47,11 @@ class authenticationController {
         // res.send(res_obj);
         res.status(httpStatus.OK).send(res_obj);
     });
+    static deleteDeveloperController = catchAsync(async (req, res)=>{
+        const res_obj = await authenticationService.deleteDeveloper(req?.user, req?.params?.id);
+        // res.send(res_obj);
+        res.status(httpStatus.OK).send(res_obj);
+    });
     
     static updateUserController = catchAsync(async (req, res) => {
         const res_obj = await authenticationService.updateUser(req?.user, req?.body, req?.file);

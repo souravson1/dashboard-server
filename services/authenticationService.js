@@ -63,6 +63,9 @@ const AllDevelopers = async()=>{
 const getMyDeveloper = async(user)=>{
     return await UsersModel.findOne({_id: user}).populate("addedDevs");
 }
+const deleteDeveloper = async(user, id)=>{
+    return await developersModel.findByIdAndDelete({_id: id})
+}
 
 // Get single developer
 const singleDevelopers = async(id)=>{
@@ -80,4 +83,4 @@ const getUserProfile = async(user)=>{
     return await UsersModel.findOne({_id: user}).select("-password")
 }
 
-module.exports = {register, loginService, UserProfile, createDev, AllDevelopers, singleDevelopers, updateUser, getUserProfile, getMyDeveloper};
+module.exports = {register, loginService, UserProfile, createDev, AllDevelopers, singleDevelopers, updateUser, getUserProfile, getMyDeveloper, deleteDeveloper};
