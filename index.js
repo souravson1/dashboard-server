@@ -21,8 +21,8 @@ ConnectDB();
 // middleware
 app.use(cors());
 app.use("/static/", express.static(path.join(__dirname, "./uploads/")))
-// app.use(express.static(path.resolve(__dirname, './dist'), {maxAge : '1y', etag: false}))
-// app.use(history());
+app.use(express.static(path.resolve(__dirname, './dist'), {maxAge : '1y', etag: false}))
+app.use(history());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -31,9 +31,9 @@ app.use(express.json());
 // routes
 app.get('/', (req, res) => res.send('Hello World!'));
 
-// app.get('*', (req, res)=>{
-//     res.sendFile(path.join(__dirname, './dist/index.html'))
-// });
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, './dist/index.html'))
+});
 
 app.use("/api/v1", Authentication);
 
