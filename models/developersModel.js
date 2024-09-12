@@ -1,10 +1,45 @@
 const mongoose = require("mongoose");
 
 const developerSchema = new mongoose.Schema({
-    name:{
+    candidateName:{
         type: String,
-        required: [true, "Please enter name"],
+        required: [true, "Please Enter Candidate Name"],
         trim: true
+    },
+    skills: [],
+    experience: {
+        type: Number,
+    },
+    rExperience:{
+        type: Number,
+    },
+    company:{
+        type: String,
+    },
+    client: {
+        type: String,
+    },
+    ctc: {
+        type: Number,
+    },
+    eCtc: {
+        type: Number,
+    },
+    noticePeriod:{
+        type: String,
+    },
+    location:{
+        type: String,
+        required: [true, "Please enter location"],
+        trim: true
+    },
+    preferedLocation:{
+        type: String,
+        required: [true, "Please enter prefered location"],
+        trim: true
+    },
+    contactNumber:{
+        type: String,
     },
     email: {
         type: String,
@@ -16,28 +51,8 @@ const developerSchema = new mongoose.Schema({
         required: [true, "Please enter job title"],
         trim: true
     },
-    category:{
-        type: String
-    },
-    description:{
-        type: String,
-        required: [true, "Please enter description"],
-        trim: true
-    },
-    image:{
-        type: String
-    },
-    currentCompany:{
-        type: String,
-        trim: true
-    },
     resume:{
         type: String
-    },
-    location:{
-        type: String,
-        required: [true, "Please enter location"],
-        trim: true
     },
     recruiter:{
         type: mongoose.Schema.Types.ObjectId,

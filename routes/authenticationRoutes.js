@@ -12,7 +12,7 @@ router.route("/login").post(validate(loginUser), authenticationController.loginC
 router.route("/profile").get(verifyJWT, authenticationController.profileController);
 router.route("/developer").post(verifyJWT, upload.single("image"), authenticationController.uploadsController).get(authenticationController.getDevelopersController);
 router.route("/mydeveloper").get(verifyJWT, authenticationController.myDeveloperController)
-router.route("/mydeveloper/:id").delete(authenticationController.deleteDeveloperController)
+router.route("/mydeveloper/:id").delete(verifyJWT, authenticationController.deleteDeveloperController)
 router.route("/developer/:id").get(authenticationController.singleDeveloperController);
 router.route('/updateuser').post(verifyJWT, upload.single("image"), authenticationController.updateUserController).get(verifyJWT, authenticationController.getUserController)
 

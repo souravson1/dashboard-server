@@ -40,7 +40,8 @@ const UserProfile = async(id)=>{
 }
 
 const createDev = async (user, body, file)=>{
-    const {name, email, jobtitle, description, category, currentCompany,resume, location } = body;
+    console.log(body);
+    const {candidateName, skills, experience, rExperience, company, client,ctc, eCtc, noticePeriod, location, preferedLocation, contactNumber, email, jobtitle} = body;
     // Get Logged user
     const loggedUser = await UsersModel.findById(user);
     // Check Existance Email
@@ -50,7 +51,7 @@ const createDev = async (user, body, file)=>{
     }
     // Insert Data into model
     const model = await developersModel.create({
-        name, email, jobtitle, description, category, image: file?.filename, currentCompany,resume, location, recruiter: user
+        candidateName, skills, experience, rExperience, company, client,ctc, eCtc, noticePeriod, location, preferedLocation, contactNumber, email, jobtitle,  resume: file?.filename, recruiter: user
     });
     loggedUser.addedDevs.push(model._id);
     await loggedUser.save();
